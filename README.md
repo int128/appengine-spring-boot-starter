@@ -22,3 +22,15 @@ See [Quickstart for Java 8 for App Engine Standard Environment](https://cloud.go
 # Deploy
 ./gradlew appengineDeploy
 ```
+
+
+## How it works
+
+This template contains:
+
+1. Apply [Google App Engine plugin](https://github.com/GoogleCloudPlatform/app-gradle-plugin)
+1. Apply Kotlin plugin
+1. Apply war and disable repackaging tasks
+1. Remove Tomcat dependencies
+1. Add SLF4J to JUL dependency and remove Logback dependencies
+1. Improve logging pattern on local dev server
