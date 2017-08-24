@@ -32,5 +32,4 @@ This template contains:
 1. Apply Kotlin plugin
 1. Apply war and disable repackaging tasks
 1. Remove Tomcat dependencies
-1. Add SLF4J to JUL dependency and remove Logback dependencies
-1. Improve logging pattern on local dev server
+1. Configure log level

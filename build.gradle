@@ -24,7 +24,6 @@ dependencies {
 
   compile 'org.springframework.boot:spring-boot-starter-web'
   compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
-  compile 'org.slf4j:slf4j-jdk14'
 
   compile 'com.google.appengine:appengine-api-1.0-sdk:+'
   providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
@@ -40,13 +39,4 @@ findMainClass.enabled = false
 configurations.all {
   exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
   exclude group: 'org.slf4j', module: 'jul-to-slf4j'
-  exclude group: 'ch.qos.logback', module: 'logback-classic'
-}
-
-appengine {
-  run {
-    jvmFlags = [
-      "-Djava.util.logging.config.file=$projectDir/src/main/webapp/WEB-INF/local-logging.properties" as String,
-    ]
-  }
 }
