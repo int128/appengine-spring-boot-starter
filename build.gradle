@@ -39,3 +39,4 @@ configurations.all {
 }
 
 bootRepackage.enabled = false
+findMainClass.enabled = false
