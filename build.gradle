@@ -1,19 +1,8 @@
-buildscript {
-  repositories {
-    jcenter()
-  }
-  dependencies {
-    classpath 'com.google.cloud.tools:appengine-gradle-plugin:+'
-  }
-}
-
 plugins {
-  id 'java'
-  id 'war'
-  id 'org.springframework.boot' version '1.5.6.RELEASE'
-  id 'org.jetbrains.kotlin.jvm' version '1.1.4'
+  id 'org.jetbrains.kotlin.jvm' version '1.1.51'
+  id 'org.springframework.boot' version '1.5.8.RELEASE'
+  id 'org.hidetake.appengine.spring.boot' version '0.9.0'
 }
-apply plugin: 'com.google.cloud.tools.appengine'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -40,6 +29,3 @@ configurations.all {
   exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
   exclude group: 'org.slf4j', module: 'jul-to-slf4j'
 }
-
-bootRepackage.enabled = false
-findMainClass.enabled = false
