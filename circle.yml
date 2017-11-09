@@ -1,0 +1,40 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: google/cloud-sdk:alpine
+    working_directory: ~/appengine-spring-boot-starter
+    steps:
+      - run:
+          name: Install
+          command: |
+            apk --update add openjdk8
+            gcloud components install app-engine-java
+
+      - checkout
+
+      - restore_cache:
+          keys:
+          - v2-dependencies-{{ checksum "build.gradle" }}
+          - v2-dependencies-
+
+      - run:
+          name: Build
+          command: |
+            ./gradlew build
+
+      - save_cache:
+          paths:
+            - ~/.gradle/caches
+            - ~/.gradle/wrapper
+          key: v2-dependencies-{{ checksum "build.gradle" }}
+
+      - deploy:
+          name: Deploy
+          command: |
+            if [ "$CIRCLE_BRANCH" = "master" ]; then
+              echo "$GCP_SERVICE_ACCOUNT_KEY" | base64 -d > "$HOME/gcp-service-account-key.json"
+              gcloud auth activate-service-account --key-file "$HOME/gcp-service-account-key.json"
+              gcloud config set project "$GCP_PROJECT_ID"
+              ./gradlew appengineDeploy
+            fi
