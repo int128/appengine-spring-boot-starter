@@ -29,3 +29,9 @@ configurations.all {
   exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
   exclude group: 'org.slf4j', module: 'jul-to-slf4j'
 }
+
+appengine {
+  deploy {
+    version = System.getenv('CIRCLE_BRANCH')
+  }
+}
