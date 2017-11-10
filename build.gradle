@@ -33,5 +33,6 @@ configurations.all {
 appengine {
   deploy {
     version = System.getenv('CIRCLE_BRANCH')
+    promote = false
   }
 }
