@@ -1,4 +1,4 @@
-# Spring Boot + Kotlin + App Engine [![Gradle Status](https://gradleupdate.appspot.com/int128/appengine-spring-boot-starter/status.svg)](https://gradleupdate.appspot.com/int128/appengine-spring-boot-starter/status)
+# Spring Boot + Kotlin + App Engine [![CircleCI](https://circleci.com/gh/int128/appengine-spring-boot-starter.svg?style=shield)](https://circleci.com/gh/int128/appengine-spring-boot-starter) [![Gradle Status](https://gradleupdate.appspot.com/int128/appengine-spring-boot-starter/status.svg)](https://gradleupdate.appspot.com/int128/appengine-spring-boot-starter/status)
 
 A template project of Spring Boot and Kotlin on App Engine Java 8 Standard Environment.
 
